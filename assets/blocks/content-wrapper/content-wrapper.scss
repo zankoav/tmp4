@@ -1,0 +1,14 @@
+@import "./../../constants";
+@import "./header/header";
+@import "./content/content";
+@import "./footer/footer";
+
+.content-wrapper {
+    background-color: $bgc-wrapper;
+    display: flex;
+    flex-direction: column;
+    min-height: $wrapper-min-height;
+}
+
+
+

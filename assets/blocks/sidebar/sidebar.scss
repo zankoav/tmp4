@@ -1,0 +1,53 @@
+@import "../../constants";
+
+.sidebar {
+    position: fixed;
+    left: -$sidebar-width;
+    top: 0;
+    width: $sidebar-width;
+    height: 100vh;
+    transition: all $sidebar-show;
+
+    background-color: $bgc-sidebar;
+
+    &--right {
+        left: initial;
+        right: -$sidebar-width;
+    }
+
+    &--show {
+        left: 0;
+
+        &.sidebar--right {
+            left: initial;
+            right: 0;
+        }
+    }
+}
+
+@media (min-width: $tablet-media) {
+
+    .sidebar {
+        left: 0;
+
+        & + .content-wrapper{
+            margin-left: $sidebar-width;
+        }
+
+        &--right + .content-wrapper{
+            margin-left:0;
+            margin-right: $sidebar-width;
+        }
+
+        &--right {
+            left: initial;
+            right: 0;
+        }
+
+        &--show {
+            left: initial;
+            right: initial;
+        }
+
+    }
+}
