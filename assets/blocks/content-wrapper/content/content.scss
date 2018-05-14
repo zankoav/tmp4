@@ -1,6 +1,7 @@
 @import "./../../../constants";
 
 .content {
+    overflow: hidden;
     background-color: $bgc-content;
     flex: 1 0 auto;
 }

@@ -1,0 +1,51 @@
+$distance: 1rem;
+$n-cols: 12;
+$media: (
+        sm:768px,
+        md:1024px,
+        lg:1280px,
+        xl:1440px
+);
+
+.col-base {
+    padding-left: $distance;
+    padding-right: $distance;
+    max-width: 100%;
+    flex: 1 0 100%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -$distance;
+    margin-right: -$distance;
+
+    &__col {
+        @extend .col-base;
+    }
+
+    @each $m_key, $m_value in $media {
+
+        @for $i from 1 through $n-cols {
+            &__col-#{$m_key}-#{$i} {
+                @extend .col-base;
+            }
+        }
+
+        @media (min-width: $m_value) {
+
+            @if $m_key == sm {
+                &__col {
+                    flex: 1 0 0;
+                }
+            }
+
+            @for $i from 1 through $n-cols {
+                &__col-#{$m_key}-#{$i} {
+                    flex: 1 0 ($i / $n-cols * 100%);
+                    max-width: $i / $n-cols * 100%;
+                }
+            }
+        }
+    }
+}
